@@ -9,7 +9,7 @@
  * - Async/await patterns
  */
 
-const Apiframe = require('@apiframe-ai/sdk');
+const { Apiframe } = require('@apiframe-ai/sdk');
 
 // Initialize the client
 const client = new Apiframe({

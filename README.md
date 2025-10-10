@@ -28,7 +28,7 @@ npm install @apiframe-ai/sdk
 ## Quick Start
 
 ```javascript
-const Apiframe = require('@apiframe-ai/sdk');
+const { Apiframe } = require('@apiframe-ai/sdk');
 
 const client = new Apiframe({
   apiKey: 'your_api_key_here'
@@ -60,7 +60,7 @@ generateImage();
 The SDK is written in TypeScript and includes type definitions:
 
 ```typescript
-import Apiframe, { MidjourneyImagineParams, TaskResponse } from '@apiframe-ai/sdk';
+import { Apiframe, MidjourneyImagineParams, TaskResponse } from '@apiframe-ai/sdk';
 
 const client = new Apiframe({
   apiKey: 'your_api_key_here'

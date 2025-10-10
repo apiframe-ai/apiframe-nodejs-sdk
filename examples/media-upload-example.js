@@ -1,4 +1,4 @@
-const Apiframe = require('@apiframe-ai/sdk');
+const { Apiframe } = require('@apiframe-ai/sdk');
 const fs = require('fs');
 
 const client = new Apiframe({

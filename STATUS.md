@@ -61,7 +61,7 @@ npm install @apiframe-ai/sdk
 
 ### Use
 \`\`\`javascript
-const Apiframe = require('@apiframe-ai/sdk');
+const { Apiframe } = require('@apiframe-ai/sdk');
 
 const client = new Apiframe({
   apiKey: 'your_api_key_here'
