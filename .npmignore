@@ -1,0 +1,17 @@
+src/
+examples/
+tests/
+*.test.ts
+*.test.js
+.eslintrc.json
+tsconfig.json
+.git/
+.gitignore
+.DS_Store
+node_modules/
+coverage/
+.vscode/
+.idea/
+*.tsbuildinfo
+.env
+realtest/
