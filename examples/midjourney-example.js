@@ -25,7 +25,7 @@ async function generateImage() {
     });
 
     console.log('Generation complete!');
-    console.log('Image URLs:', result.image_urls);
+    console.log('Image URLs:', result.image_urls); // imagine returns 4 images
 
   } catch (error) {
     console.error('Error:', error.message);
@@ -90,7 +90,7 @@ async function faceSwapExample() {
     console.log('Task created:', task.id);
 
     const result = await client.tasks.waitFor(task.id);
-    console.log('Face swap complete:', result.imageUrl);
+    console.log('Face swap complete:', result.image_url); // single image
 
   } catch (error) {
     console.error('Error:', error.message);
@@ -112,7 +112,7 @@ async function upscaleWorkflow() {
       index: '1'
     });
     const upscale1xResult = await client.tasks.waitFor(upscale1xTask.id);
-    console.log('Upscaled to 1x:', upscale1xResult.imageUrl);
+    console.log('Upscaled to 1x:', upscale1xResult.image_url);
 
     // Step 3: Further upscale with Subtle mode
     const upscaleAltTask = await client.midjourney.upscaleAlt({
@@ -120,15 +120,15 @@ async function upscaleWorkflow() {
       type: 'subtle'
     });
     const upscaleAltResult = await client.tasks.waitFor(upscaleAltTask.id);
-    console.log('Upscaled with Subtle mode:', upscaleAltResult.imageUrl);
+    console.log('Upscaled with Subtle mode:', upscaleAltResult.image_url);
 
     // Step 4: Upscale to high resolution (2x or 4x)
     const upscaleHighresTask = await client.midjourney.upscaleHighres({
-      image_url: upscaleAltResult.imageUrl,
+      image_url: upscaleAltResult.image_url,
       type: '2x'
     });
     const upscaleHighresResult = await client.tasks.waitFor(upscaleHighresTask.id);
-    console.log('Upscaled to high resolution:', upscaleHighresResult.imageUrl);
+    console.log('Upscaled to high resolution:', upscaleHighresResult.image_url);
 
   } catch (error) {
     console.error('Error:', error.message);
@@ -156,7 +156,7 @@ async function advancedEditing() {
       prompt: 'expand the room view'
     });
     const outpaintResult = await client.tasks.waitFor(outpaintTask.id);
-    console.log('Outpainted image:', outpaintResult.imageUrl);
+    console.log('Outpainted image:', outpaintResult.image_url);
 
     // Pan - Expand in a direction
     const panTask = await client.midjourney.pan({
@@ -189,7 +189,7 @@ async function otherFeatures() {
       dimension: 'landscape'
     });
     const blendResult = await client.tasks.waitFor(blendTask.id);
-    console.log('Blended image:', blendResult.imageUrl);
+    console.log('Blended image:', blendResult.image_url);
 
     // Shorten a prompt
     const shortenTask = await client.midjourney.shorten({

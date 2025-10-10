@@ -48,8 +48,7 @@ async function generateImage() {
     onProgress: (p) => console.log('Progress:', p)
   });
 
-  console.log('Image ready:', result.imageUrl);
-  console.log('Download:', result.downloadUrl);
+  console.log('Images ready:', result.image_urls); // imagine returns 4 images
 }
 
 generateImage();

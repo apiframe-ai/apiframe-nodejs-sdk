@@ -43,7 +43,7 @@ async function main() {
     });
     
     console.log('✅ Done!');
-    console.log('Image URL:', result.imageUrl);
+    console.log('Image URLs:', result.image_urls); // imagine returns 4 images
     
   } catch (error) {
     console.error('Error:', error.message);
@@ -179,8 +179,8 @@ async function generateAndDownload(prompt) {
   const task = await client.midjourney.imagine({ prompt });
   const result = await client.tasks.waitFor(task.id);
   
-  // Download the image
-  const response = await fetch(result.downloadUrl);
+  // Download the first image
+  const response = await fetch(result.image_urls[0]);
   const buffer = await response.buffer();
   require('fs').writeFileSync('output.png', buffer);
   

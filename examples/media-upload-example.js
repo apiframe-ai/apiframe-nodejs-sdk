@@ -32,7 +32,7 @@ async function uploadAndUse() {
       onProgress: (p) => console.log(`Blend progress: ${p}%`)
     });
 
-    console.log('Blend complete:', result.imageUrl);
+    console.log('Blend complete:', result.image_url);
 
   } catch (error) {
     console.error('Error:', error.message);

@@ -25,7 +25,7 @@ async function generateWithFlux() {
       onProgress: (p) => console.log(`Progress: ${p}%`)
     });
 
-    console.log('Image ready:', result.imageUrl);
+    console.log('Image ready:', result.image_url);
 
     // Example using convenience method
     console.log('\nGenerating with Flux Schnell (fast)...');
@@ -39,7 +39,7 @@ async function generateWithFlux() {
       onProgress: (p) => console.log(`Progress: ${p}%`)
     });
 
-    console.log('Quick image ready:', schnellResult.imageUrl);
+    console.log('Quick image ready:', schnellResult.image_url);
 
   } catch (error) {
     console.error('Error:', error.message);

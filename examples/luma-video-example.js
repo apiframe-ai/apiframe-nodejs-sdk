@@ -22,7 +22,7 @@ async function generateVideo() {
       interval: 5000 // Check every 5 seconds
     });
 
-    console.log('Video ready:', result.videoUrl);
+    console.log('Video ready:', result.video_url);
 
     // Example: Extend the generated video
     console.log('\nExtending the video...');
@@ -36,7 +36,7 @@ async function generateVideo() {
       interval: 5000
     });
 
-    console.log('Extended video ready:', extendResult.videoUrl);
+    console.log('Extended video ready:', extendResult.video_url);
 
   } catch (error) {
     console.error('Error:', error.message);

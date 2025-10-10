@@ -213,8 +213,8 @@ const vary = await client.midjourney.vary({
 
 // 4. Blend with another image
 const blend = await client.midjourney.blend({
-  images: [result.imageUrl, 'another_url'],
-  aspectRatio: '1:1'
+  image_urls: [result.image_urls[0], 'another_url'],
+  dimension: 'square'
 });
 ```
 

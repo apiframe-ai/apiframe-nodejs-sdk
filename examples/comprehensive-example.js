@@ -70,7 +70,7 @@ async function fluxExample() {
     });
     
     console.log('\n✓ Image generated!');
-    console.log('  URL:', result.imageUrl);
+    console.log('  URL:', result.image_url);
     
     return result;
   } catch (error) {
@@ -99,7 +99,7 @@ async function lumaExample() {
     });
     
     console.log('\n✓ Video generated!');
-    console.log('  URL:', result.videoUrl);
+    console.log('  URL:', result.video_url);
     
     return result;
   } catch (error) {
@@ -235,7 +235,7 @@ async function batchProcessingExample() {
     
     console.log(`\n✓ All ${results.length} tasks completed!`);
     results.forEach((result, i) => {
-      console.log(`  ${i + 1}. ${result.imageUrl}`);
+      console.log(`  ${i + 1}. ${result.image_urls}`); // imagine returns 4 images
     });
     
     return results;

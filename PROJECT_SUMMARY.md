@@ -164,7 +164,7 @@ async function generate() {
     onProgress: (p) => console.log('Progress:', p)
   });
   
-  console.log('Done:', result.imageUrl);
+  console.log('Done:', result.image_urls); // imagine returns 4 images
 }
 ```
 

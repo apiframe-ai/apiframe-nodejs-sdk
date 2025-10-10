@@ -25,8 +25,7 @@ async function generateImagePro() {
     });
 
     console.log('Generation complete!');
-    console.log('Image URL:', result.imageUrl);
-    console.log('Download URL:', result.downloadUrl);
+    console.log('Image URLs:', result.image_urls); // imagine returns 4 images
 
     // Example: Upscale one of the generated images
     console.log('\nUpscaling image 1...');
@@ -40,7 +39,7 @@ async function generateImagePro() {
       onProgress: (p) => console.log('Upscale progress:', p + '%')
     });
 
-    console.log('Upscaled image:', upscaleResult.imageUrl);
+    console.log('Upscaled image:', upscaleResult.image_url);
 
     // Example: Create variations
     console.log('\nCreating variations...');
@@ -54,7 +53,7 @@ async function generateImagePro() {
       onProgress: (p) => console.log('Vary progress:', p + '%')
     });
 
-    console.log('Variations created:', varyResult.imageUrl);
+    console.log('Variations created:', varyResult.image_urls); // vary returns 4 images
 
   } catch (error) {
     console.error('Error:', error.message);
