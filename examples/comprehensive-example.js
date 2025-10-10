@@ -32,8 +32,7 @@ async function midjourneyExample() {
   try {
     const task = await client.midjourney.imagine({
       prompt: 'a serene zen garden with a koi pond, cherry blossoms, photorealistic',
-      aspectRatio: '16:9',
-      model: 'v7'
+      aspect_ratio: '16:9'
     });
     
     console.log('✓ Task created:', task.id);
@@ -61,8 +60,7 @@ async function fluxExample() {
     const task = await client.flux.generateSchnell({
       prompt: 'a futuristic cyberpunk cityscape at night, neon lights',
       width: 1024,
-      height: 1024,
-      numInferenceSteps: 25
+      height: 1024
     });
     
     console.log('✓ Task created:', task.id);
@@ -88,7 +86,7 @@ async function lumaExample() {
   try {
     const task = await client.luma.generate({
       prompt: 'a peaceful mountain stream with flowing water and surrounding forest',
-      aspectRatio: '16:9'
+      aspect_ratio: '16:9'
     });
     
     console.log('✓ Task created:', task.id);
@@ -115,11 +113,12 @@ async function sunoExample() {
   console.log('\n\n=== Suno AI Music Generation ===\n');
   
   try {
-    const task = await client.suno.custom({
+    const task = await client.suno.generate({
       prompt: 'Create an uplifting electronic dance track with energetic beats',
+      model: 'chirp-v3-5',
       tags: 'electronic, dance, upbeat, energetic',
       title: 'Digital Sunrise',
-      makeInstrumental: false
+      make_instrumental: false
     });
     
     console.log('✓ Task created:', task.id);
@@ -130,7 +129,7 @@ async function sunoExample() {
     });
     
     console.log('\n✓ Music generated!');
-    console.log('  URL:', result.audioUrl);
+    console.log('  Songs:', result.songs); // Result contains array of 2 songs
     
     return result;
   } catch (error) {
@@ -185,10 +184,7 @@ async function taskManagementExample() {
     // Get task status
     const status = await client.tasks.get(task.id);
     console.log('✓ Task status:', status.status);
-    
-    // List recent tasks
-    const tasks = await client.tasks.list(5);
-    console.log('✓ Recent tasks:', tasks.length);
+    console.log('✓ Task progress:', status.progress);
     
     // Wait for completion
     const result = await client.tasks.waitFor(task.id, {

@@ -38,8 +38,7 @@ async function generateImage() {
   // Create an image generation task
   const task = await client.midjourney.imagine({
     prompt: 'a serene mountain landscape at sunset, photorealistic',
-    aspectRatio: '16:9',
-    model: 'v7'
+    aspect_ratio: '16:9'
   });
 
   console.log('Task created:', task.id);
@@ -69,8 +68,7 @@ const client = new Apiframe({
 
 const params: MidjourneyImagineParams = {
   prompt: 'a beautiful sunset',
-  aspectRatio: '16:9',
-  model: 'v7'
+  aspect_ratio: '16:9'
 };
 
 const task: TaskResponse = await client.midjourney.imagine(params);
@@ -646,21 +644,21 @@ console.log('Generated photos:', result.image_urls);
 ```javascript
 // Upload image from file (max 2MB)
 const upload = await client.media.upload({
-  file: './path/to/image.jpg'
+  filename: './path/to/image.jpg'
 });
 
 console.log('Uploaded:', upload.imageURL);
 
 // Upload audio from file (max 2MB, 60 seconds)
 const audioUpload = await client.media.uploadAudio({
-  file: './path/to/audio.mp3'
+  filename: './path/to/audio.mp3'
 });
 
 console.log('Uploaded audio:', audioUpload.audioURL);
 
 // Use uploaded media
 const task = await client.midjourney.blend({
-  images: [upload.imageURL, another_url]
+  image_urls: [upload.imageURL, another_url]
 });
 ```
 

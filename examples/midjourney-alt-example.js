@@ -29,25 +29,23 @@ async function generateImagePro() {
     console.log('Download URL:', result.downloadUrl);
 
     // Example: Upscale one of the generated images
-    if (result.id) {
-      console.log('\nUpscaling image 1...');
-      const upscaleTask = await client.midjourneyAlt.upscale({
-        parent_task_id: result.id,
-        index: '1', // Upscale the first image
-        type: 'subtle' // 'subtle' or 'creative'
-      });
+    console.log('\nUpscaling image 1...');
+    const upscaleTask = await client.midjourneyAlt.upscale({
+      parent_task_id: task.id,
+      index: '1', // Upscale the first image
+      type: 'subtle' // 'subtle' or 'creative'
+    });
 
-      const upscaleResult = await client.tasks.waitFor(upscaleTask.id, {
-        onProgress: (p) => console.log('Upscale progress:', p + '%')
-      });
+    const upscaleResult = await client.tasks.waitFor(upscaleTask.id, {
+      onProgress: (p) => console.log('Upscale progress:', p + '%')
+    });
 
-      console.log('Upscaled image:', upscaleResult.imageUrl);
-    }
+    console.log('Upscaled image:', upscaleResult.imageUrl);
 
     // Example: Create variations
     console.log('\nCreating variations...');
     const varyTask = await client.midjourneyAlt.vary({
-      parent_task_id: result.id,
+      parent_task_id: task.id,
       index: '1',
       type: 'subtle' // 'subtle' or 'strong'
     });

@@ -50,11 +50,11 @@ async function waitForTaskExample() {
       prompt: 'a beautiful landscape'
     });
 
-    console.log('Task created:', task.task_id);
+    console.log('Task created:', task.id);
 
     // Wait for the task to complete with progress tracking
     console.log('Waiting for task to complete...');
-    const result = await client.tasks.waitFor(task.task_id, {
+    const result = await client.tasks.waitFor(task.id, {
       onProgress: (progress) => {
         console.log(`Progress: ${progress}%`);
       },
