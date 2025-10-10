@@ -1,4 +1,4 @@
-const Apiframe = require('@apiframe/sdk');
+const Apiframe = require('@apiframe-ai/sdk');
 
 const client = new Apiframe({
   apiKey: process.env.APIFRAME_API_KEY || 'your_api_key_here'

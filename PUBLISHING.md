@@ -4,9 +4,9 @@ This guide explains how to publish the Apiframe Node.js SDK to npm.
 
 ## Prerequisites
 
-1. **npm Account**: You need an npm account with access to the `@apiframe` organization
+1. **npm Account**: You need an npm account with access to the `@apiframe-ai` organization
    - Create account at [npmjs.com](https://www.npmjs.com/signup)
-   - Get added to the `@apiframe` organization
+   - Get added to the `@apiframe-ai` organization
 
 2. **npm CLI**: Make sure npm is installed and updated
    ```bash
@@ -158,7 +158,7 @@ After publishing:
 
 ### 1. Check npm Registry
 
-Visit: `https://www.npmjs.com/package/@apiframe/sdk`
+Visit: `https://www.npmjs.com/package/@apiframe-ai/sdk`
 
 ### 2. Test Installation
 
@@ -167,24 +167,24 @@ In a new directory:
 mkdir test-sdk
 cd test-sdk
 npm init -y
-npm install @apiframe/sdk
+npm install @apiframe-ai/sdk
 
 # Test it
-node -e "const Apiframe = require('@apiframe/sdk'); console.log('Success!');"
+node -e "const Apiframe = require('@apiframe-ai/sdk'); console.log('Success!');"
 ```
 
 ### 3. Check Package Info
 
 ```bash
-npm info @apiframe/sdk
-npm view @apiframe/sdk versions
+npm info @apiframe-ai/sdk
+npm view @apiframe-ai/sdk versions
 ```
 
 ## Common Issues
 
 ### Issue: 403 Forbidden
 
-**Problem**: No permission to publish to `@apiframe` scope
+**Problem**: No permission to publish to `@apiframe-ai` scope
 
 **Solution**: 
 - Ensure you're logged in: `npm whoami`
@@ -298,7 +298,7 @@ npm version 1.1.0-beta.0
 npm publish --tag beta
 
 # Users install with
-npm install @apiframe/sdk@beta
+npm install @apiframe-ai/sdk@beta
 ```
 
 ## Unpublishing
@@ -307,10 +307,10 @@ npm install @apiframe/sdk@beta
 
 ```bash
 # Unpublish specific version (within 72 hours)
-npm unpublish @apiframe/sdk@1.0.0
+npm unpublish @apiframe-ai/sdk@1.0.0
 
 # Deprecate instead (preferred)
-npm deprecate @apiframe/sdk@1.0.0 "This version has critical bugs, use 1.0.1"
+npm deprecate @apiframe-ai/sdk@1.0.0 "This version has critical bugs, use 1.0.1"
 ```
 
 ## Post-Publishing
@@ -360,7 +360,7 @@ For publishing issues:
 
 ---
 
-**Last Updated**: October 9, 2024
-**Package**: @apiframe/sdk
+**Last Updated**: October 10, 2024
+**Package**: @apiframe-ai/sdk
 **Current Version**: 1.0.0
 

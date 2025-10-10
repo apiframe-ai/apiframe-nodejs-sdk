@@ -1,5 +1,5 @@
 {
-  "name": "@apiframe/sdk",
+  "name": "@apiframe-ai/sdk",
   "version": "1.0.0",
   "description": "Official Node.js SDK for Apiframe - AI image and video generation APIs",
   "main": "dist/index.js",

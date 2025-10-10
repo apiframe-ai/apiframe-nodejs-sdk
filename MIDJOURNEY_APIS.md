@@ -45,7 +45,7 @@ The Original API provides comprehensive image manipulation features:
 ### Example Usage
 
 ```javascript
-const Apiframe = require('@apiframe/sdk');
+const Apiframe = require('@apiframe-ai/sdk');
 const client = new Apiframe({ apiKey: 'your_api_key' });
 
 // Basic image generation
@@ -102,7 +102,7 @@ The Pro API focuses on speed, stability, and reproducibility:
 ### Example Usage
 
 ```javascript
-const Apiframe = require('@apiframe/sdk');
+const Apiframe = require('@apiframe-ai/sdk');
 const client = new Apiframe({ apiKey: 'your_api_key' });
 
 // Pro API with Turbo mode
@@ -286,7 +286,7 @@ Both APIs have full TypeScript support:
 import Apiframe, {
   MidjourneyImagineParams,
   MidjourneyAltImagineParams
-} from '@apiframe/sdk';
+} from '@apiframe-ai/sdk';
 
 // Original API types
 const params: MidjourneyImagineParams = {

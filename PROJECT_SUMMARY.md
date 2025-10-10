@@ -143,12 +143,12 @@ apiframe-nodejs-sdk/
 
 ### Installation
 ```bash
-npm install @apiframe/sdk
+npm install @apiframe-ai/sdk
 ```
 
 ### Basic Usage
 ```javascript
-const Apiframe = require('@apiframe/sdk');
+const Apiframe = require('@apiframe-ai/sdk');
 
 const client = new Apiframe({
   apiKey: 'your_api_key_here'
@@ -244,7 +244,6 @@ Potential additions for future versions:
 
 - Documentation: [docs.apiframe.ai](https://docs.apiframe.ai)
 - Issues: GitHub Issues
-- Email: support@apiframe.ai
 
 ## 📄 License
 

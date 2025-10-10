@@ -5,7 +5,7 @@ Get started with the Apiframe Node.js SDK in 5 minutes!
 ## Step 1: Installation
 
 ```bash
-npm install @apiframe/sdk
+npm install @apiframe-ai/sdk
 ```
 
 ## Step 2: Get Your API Key
@@ -19,7 +19,7 @@ npm install @apiframe/sdk
 Create a file called `app.js`:
 
 ```javascript
-const Apiframe = require('@apiframe/sdk');
+const Apiframe = require('@apiframe-ai/sdk');
 
 // Initialize with your API key
 const client = new Apiframe({
@@ -119,7 +119,7 @@ const {
   ApiframeError, 
   AuthenticationError, 
   RateLimitError 
-} = require('@apiframe/sdk');
+} = require('@apiframe-ai/sdk');
 
 try {
   const task = await client.midjourney.imagine({ prompt: '...' });
@@ -139,7 +139,7 @@ try {
 The SDK has full TypeScript support:
 
 ```typescript
-import Apiframe, { MidjourneyImagineParams } from '@apiframe/sdk';
+import Apiframe, { MidjourneyImagineParams } from '@apiframe-ai/sdk';
 
 const client = new Apiframe({
   apiKey: process.env.APIFRAME_API_KEY!
@@ -245,7 +245,6 @@ async function generateWithRetry(params, maxRetries = 3) {
 - 📖 [Full Documentation](README.md)
 - 🌐 [API Docs](https://docs.apiframe.ai)
 - 💬 [GitHub Issues](https://github.com/apiframe/apiframe-nodejs-sdk/issues)
-- 📧 Email: support@apiframe.ai
 
 ## Examples
 

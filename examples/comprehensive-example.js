@@ -9,7 +9,7 @@
  * - Async/await patterns
  */
 
-const Apiframe = require('@apiframe/sdk');
+const Apiframe = require('@apiframe-ai/sdk');
 
 // Initialize the client
 const client = new Apiframe({
@@ -148,7 +148,7 @@ async function errorHandlingExample() {
     AuthenticationError, 
     RateLimitError,
     TimeoutError 
-  } = require('@apiframe/sdk');
+  } = require('@apiframe-ai/sdk');
   
   try {
     // This will fail with invalid parameters

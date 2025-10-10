@@ -56,12 +56,12 @@ Full build system configured
 
 ### Install
 \`\`\`bash
-npm install @apiframe/sdk
+npm install @apiframe-ai/sdk
 \`\`\`
 
 ### Use
 \`\`\`javascript
-const Apiframe = require('@apiframe/sdk');
+const Apiframe = require('@apiframe-ai/sdk');
 
 const client = new Apiframe({
   apiKey: 'your_api_key_here'

@@ -2,7 +2,7 @@
 
 Official Node.js SDK for [Apiframe](https://apiframe.ai) - The ultimate platform for AI image and video generation APIs.
 
-[![npm version](https://badge.fury.io/js/%40apiframe%2Fsdk.svg)](https://www.npmjs.com/package/@apiframe/sdk)
+[![npm version](https://badge.fury.io/js/%40apiframe-ai%2Fsdk.svg)](https://www.npmjs.com/package/@apiframe-ai/sdk)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Features
@@ -22,13 +22,13 @@ Official Node.js SDK for [Apiframe](https://apiframe.ai) - The ultimate platform
 ## Installation
 
 ```bash
-npm install @apiframe/sdk
+npm install @apiframe-ai/sdk
 ```
 
 ## Quick Start
 
 ```javascript
-const Apiframe = require('@apiframe/sdk');
+const Apiframe = require('@apiframe-ai/sdk');
 
 const client = new Apiframe({
   apiKey: 'your_api_key_here'
@@ -61,7 +61,7 @@ generateImage();
 The SDK is written in TypeScript and includes type definitions:
 
 ```typescript
-import Apiframe, { MidjourneyImagineParams, TaskResponse } from '@apiframe/sdk';
+import Apiframe, { MidjourneyImagineParams, TaskResponse } from '@apiframe-ai/sdk';
 
 const client = new Apiframe({
   apiKey: 'your_api_key_here'
@@ -717,7 +717,7 @@ const {
   AuthenticationError, 
   RateLimitError, 
   TimeoutError 
-} = require('@apiframe/sdk');
+} = require('@apiframe-ai/sdk');
 
 try {
   const task = await client.midjourney.imagine({ prompt: '...' });
@@ -778,7 +778,6 @@ For detailed API documentation, visit [docs.apiframe.ai](https://docs.apiframe.a
 
 - Documentation: [docs.apiframe.ai](https://docs.apiframe.ai)
 - GitHub Issues: [github.com/apiframe/apiframe-nodejs-sdk/issues](https://github.com/apiframe/apiframe-nodejs-sdk/issues)
-- Email: support@apiframe.ai
 
 ## License
 
