@@ -15,6 +15,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0-beta.1] — 2026-05-02
+
+### Fixed
+
+- `openapi.json` now points at the canonical docs URL
+  (`https://apiframe.ai/docs`) instead of the placeholder
+  `docs.apiframe.ai`. README updated to match. No code/runtime changes —
+  if you've already pinned `2.0.0-beta.0`, upgrading is optional.
+
 ## [2.0.0-beta.0] — 2026-05-01
 
 First public preview of the SDK for the Apiframe v2 API. The Apiframe

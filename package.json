@@ -1,6 +1,6 @@
 {
   "name": "@apiframe-ai/sdk",
-  "version": "2.0.0-beta.0",
+  "version": "2.0.0-beta.1",
   "description": "Official Node.js SDK for the Apiframe v2 API — unified image, video and music generation across 60+ AI models.",
   "type": "module",
   "main": "./dist/index.cjs",

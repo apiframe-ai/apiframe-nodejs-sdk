@@ -4,7 +4,7 @@
 [![Node.js](https://img.shields.io/badge/node-%3E%3D18-brightgreen)](https://nodejs.org/)
 [![License](https://img.shields.io/badge/license-MIT-blue)](./LICENSE)
 
-Official Node.js SDK for the [Apiframe v2 API](https://docs.apiframe.ai) — one
+Official Node.js SDK for the [Apiframe v2 API](https://apiframe.ai/docs) — one
 typed client for every image, video and music model on the platform
 (Midjourney, Flux, Kling, Veo, Sora, Suno, Topaz, and more).
 
@@ -441,4 +441,4 @@ A runnable example per resource lives under
   move to `latest`.
 - Bugs and feature requests:
   [github.com/apiframe-ai/apiframe-nodejs-sdk/issues](https://github.com/apiframe-ai/apiframe-nodejs-sdk/issues).
-- Full reference: [docs.apiframe.ai](https://docs.apiframe.ai).
+- Full reference: [apiframe.ai/docs](https://apiframe.ai/docs).
