@@ -1,11 +1,12 @@
-node_modules/
-dist/
-*.log
+node_modules
+dist
+coverage
 .env
-.DS_Store
-coverage/
-.idea/
-.vscode/
+.env.local
 *.tsbuildinfo
-.env
-realtest/
+.DS_Store
+.vscode
+.idea
+
+# Ad-hoc real-API test scripts and their generated artefacts. Local only.
+live/
