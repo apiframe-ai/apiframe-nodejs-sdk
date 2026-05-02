@@ -1,5 +1,19 @@
 # Apiframe Node.js SDK
 
+> **Heads up — `@apiframe-ai/sdk` defaults to the Apiframe v2 SDK.**
+> The `1.x` line on this page is the SDK for the **Apiframe v1 API**
+> and continues to work as before for existing v1 customers. If you're
+> starting a new project, just install `@apiframe-ai/sdk` (you'll get
+> the v2 SDK):
+>
+> ```bash
+> npm install @apiframe-ai/sdk
+> ```
+>
+> v2 reference: [apiframe.ai/docs](https://apiframe.ai/docs).
+> v2 source: [`main` branch](https://github.com/apiframe-ai/apiframe-nodejs-sdk).
+> Need to stay on v1 explicitly? `npm install @apiframe-ai/sdk@1`.
+
 Official Node.js SDK for [Apiframe](https://apiframe.ai) - The ultimate platform for AI image and video generation APIs.
 
 [![npm version](https://badge.fury.io/js/%40apiframe-ai%2Fsdk.svg)](https://www.npmjs.com/package/@apiframe-ai/sdk)

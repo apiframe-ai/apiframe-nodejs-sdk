@@ -1,7 +1,7 @@
 {
   "name": "@apiframe-ai/sdk",
-  "version": "1.0.0",
-  "description": "Official Node.js SDK for Apiframe - AI image and video generation APIs",
+  "version": "1.0.1",
+  "description": "Apiframe v1 SDK — AI image and video generation for the legacy Apiframe v1 API. The default `@apiframe-ai/sdk` install resolves to the new Apiframe v2 SDK.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
