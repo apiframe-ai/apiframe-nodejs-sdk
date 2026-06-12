@@ -1319,7 +1319,7 @@ export interface paths {
         put?: never;
         /**
          * Submit a music generation job
-         * @description Creates a music job across Suno, Udio, Producer, Lyria 3, ElevenLabs Music and Mureka. Suno, Udio and Mureka always return TWO songs per call — the result is an array.
+         * @description Creates a music job across Suno, Udio, Producer, Lyria 3, ElevenLabs Music and Mureka. Suno and Udio always return TWO songs per call; Mureka returns 1-3 songs (`murekaParams.n`, default 2) — the result is an array.
          */
         post: {
             parameters: {
@@ -2878,6 +2878,8 @@ export interface components {
                  * @enum {string}
                  */
                 model_version: "auto" | "mureka-7.6" | "mureka-o2" | "mureka-8" | "mureka-9";
+                /** @default 2 */
+                n: number;
             };
             prompt: string;
             webhookEvents?: ("progress" | "completed" | "failed")[];
