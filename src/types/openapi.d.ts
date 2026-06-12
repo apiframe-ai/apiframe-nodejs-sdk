@@ -489,6 +489,106 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v2/images/midjourney/action": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Run a follow-up action on a completed Midjourney image
+         * @description Runs a follow-up action on a completed `midjourney` job, referenced by its job ID. Grid actions — `upsample` (U1–U4) and `variation` (V1–V4) — act on a grid-producing parent; `index` selects which of the 4 images. Upsample actions — `inpaint` (Vary Region, base64 `mask` + optional `prompt`), `outpaint` (Zoom Out, `zoomRatio` 1.5 or 2), and `pan` (`direction` up/down/left/right) — act on a completed upsample job. Upsample returns a single image; every other action returns a fresh 4-image grid (which can itself be acted on). Returns 409 when the requested action is not available for the parent job.
+         */
+        post: {
+            parameters: {
+                query?: never;
+                header?: {
+                    /** @description Optional client-supplied key (max 255 chars). Replaying the same key within 24 hours returns the original job rather than creating a duplicate. Strongly recommended for any non-idempotent network: cron jobs, browser retries, mobile clients. */
+                    "Idempotency-Key"?: components["parameters"]["IdempotencyKey"];
+                };
+                path?: never;
+                cookie?: never;
+            };
+            requestBody: {
+                content: {
+                    "application/json": components["schemas"]["MidjourneyActionRequest"];
+                };
+            };
+            responses: {
+                /** @description Job accepted and queued. Track via `GET /v2/jobs/{id}` or webhook. */
+                202: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["JobAccepted"];
+                    };
+                };
+                /** @description Request body failed validation. */
+                400: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["ValidationError"];
+                    };
+                };
+                /** @description Authentication failed (missing / invalid API key). */
+                401: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["ErrorResponse"];
+                    };
+                };
+                /** @description Team has insufficient credits to run this model. */
+                402: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["InsufficientCredits"];
+                    };
+                };
+                /** @description Authenticated but the API key is inactive or lacks permission. */
+                403: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["ErrorResponse"];
+                    };
+                };
+                /** @description Rate limit exceeded. Retry after the `Retry-After` seconds. */
+                429: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["ErrorResponse"];
+                    };
+                };
+                /** @description Service temporarily unavailable (queue / DB outage). Retry with backoff. */
+                503: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["ErrorResponse"];
+                    };
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v2/images/upscale": {
         parameters: {
             query?: never;
@@ -1219,7 +1319,7 @@ export interface paths {
         put?: never;
         /**
          * Submit a music generation job
-         * @description Creates a music job across Suno, Udio, Producer, Lyria 3 and ElevenLabs Music. Suno and Udio always return TWO songs per call — the result is an array.
+         * @description Creates a music job across Suno, Udio, Producer, Lyria 3, ElevenLabs Music and Mureka. Suno, Udio and Mureka always return TWO songs per call — the result is an array.
          */
         post: {
             parameters: {
@@ -1234,6 +1334,106 @@ export interface paths {
             requestBody: {
                 content: {
                     "application/json": components["schemas"]["GenerateMusicRequest"];
+                };
+            };
+            responses: {
+                /** @description Job accepted and queued. Track via `GET /v2/jobs/{id}` or webhook. */
+                202: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["JobAccepted"];
+                    };
+                };
+                /** @description Request body failed validation. */
+                400: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["ValidationError"];
+                    };
+                };
+                /** @description Authentication failed (missing / invalid API key). */
+                401: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["ErrorResponse"];
+                    };
+                };
+                /** @description Team has insufficient credits to run this model. */
+                402: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["InsufficientCredits"];
+                    };
+                };
+                /** @description Authenticated but the API key is inactive or lacks permission. */
+                403: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["ErrorResponse"];
+                    };
+                };
+                /** @description Rate limit exceeded. Retry after the `Retry-After` seconds. */
+                429: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["ErrorResponse"];
+                    };
+                };
+                /** @description Service temporarily unavailable (queue / DB outage). Retry with backoff. */
+                503: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["ErrorResponse"];
+                    };
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v2/music/suno/action": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Run a follow-up action on a completed Suno job
+         * @description Runs a follow-up action on a completed `suno` job, referenced by its job ID. Every action selects one of the parent's tracks with `index` (1–2) or `trackId` (from the parent's `result.tracks[].id`). `extend` continues the track from `continueAt` (seconds; defaults to the end of the track and must be less than its duration). `cover` re-generates the track in a new style while keeping its core melody (`audio_weight` 0–1 controls how closely it follows the source). `add_vocals` layers AI-generated vocals onto the track — `prompt` (the lyrics) is required; intended for instrumental parents. `stems` splits the track into separate vocals and instrumental audio files. Optional `prompt` (lyrics in custom mode, a description otherwise), `title`, `style`, and `negative_tags` override the inherited values. Extend, cover, and add_vocals results are fresh pairs of Suno tracks and can be acted on again; stems results are 2 plain audio files (`vocals` + `instrumental`) that accept no further actions. Returns 409 when the action is not available for the parent job.
+         */
+        post: {
+            parameters: {
+                query?: never;
+                header?: {
+                    /** @description Optional client-supplied key (max 255 chars). Replaying the same key within 24 hours returns the original job rather than creating a duplicate. Strongly recommended for any non-idempotent network: cron jobs, browser retries, mobile clients. */
+                    "Idempotency-Key"?: components["parameters"]["IdempotencyKey"];
+                };
+                path?: never;
+                cookie?: never;
+            };
+            requestBody: {
+                content: {
+                    "application/json": components["schemas"]["SunoActionRequest"];
                 };
             };
             responses: {
@@ -2562,7 +2762,7 @@ export interface components {
             /** Format: uri */
             webhookUrl?: string;
         };
-        /** @description Discriminated by `model`. Covers Suno, Udio, Producer, Lyria 3 (clip + pro), and ElevenLabs Music. */
+        /** @description Discriminated by `model`. Covers Suno, Udio, Producer, Lyria 3 (clip + pro), ElevenLabs Music, and Mureka. */
         GenerateMusicRequest: {
             /** @enum {string} */
             model: "suno";
@@ -2662,6 +2862,23 @@ export interface components {
             };
             /** @enum {string} */
             model: "elevenlabs-music";
+            prompt: string;
+            webhookEvents?: ("progress" | "completed" | "failed")[];
+            /** Format: uri */
+            webhookUrl?: string;
+        } | {
+            /** @enum {string} */
+            model: "mureka";
+            murekaParams?: {
+                /** @default false */
+                instrumental: boolean;
+                lyrics?: string;
+                /**
+                 * @default auto
+                 * @enum {string}
+                 */
+                model_version: "auto" | "mureka-7.6" | "mureka-o2" | "mureka-8" | "mureka-9";
+            };
             prompt: string;
             webhookEvents?: ("progress" | "completed" | "failed")[];
             /** Format: uri */
@@ -3513,6 +3730,55 @@ export interface components {
                 role: ("ADMIN" | "MEMBER" | "OWNER") | string;
             };
         };
+        /** @description Discriminated by `action`. Grid actions (`upsample`/`variation`) take an `index` (1–4) and act on a completed grid job; upsample actions (`inpaint`/`outpaint`/`pan`) act on a completed upsample job. */
+        MidjourneyActionRequest: {
+            /** @enum {string} */
+            action: "upsample";
+            index: 1 | 2 | 3 | 4;
+            /** Format: uuid */
+            parentJobId: string;
+            webhookEvents?: ("progress" | "completed" | "failed")[];
+            /** Format: uri */
+            webhookUrl?: string;
+        } | {
+            /** @enum {string} */
+            action: "variation";
+            index: 1 | 2 | 3 | 4;
+            /** Format: uuid */
+            parentJobId: string;
+            webhookEvents?: ("progress" | "completed" | "failed")[];
+            /** Format: uri */
+            webhookUrl?: string;
+        } | {
+            /** @enum {string} */
+            action: "inpaint";
+            mask: string;
+            /** Format: uuid */
+            parentJobId: string;
+            prompt?: string;
+            webhookEvents?: ("progress" | "completed" | "failed")[];
+            /** Format: uri */
+            webhookUrl?: string;
+        } | {
+            /** @enum {string} */
+            action: "outpaint";
+            /** Format: uuid */
+            parentJobId: string;
+            webhookEvents?: ("progress" | "completed" | "failed")[];
+            /** Format: uri */
+            webhookUrl?: string;
+            zoomRatio: 1.5 | 2;
+        } | {
+            /** @enum {string} */
+            action: "pan";
+            /** @enum {string} */
+            direction: "up" | "down" | "left" | "right";
+            /** Format: uuid */
+            parentJobId: string;
+            webhookEvents?: ("progress" | "completed" | "failed")[];
+            /** Format: uri */
+            webhookUrl?: string;
+        };
         ModelCatalog: {
             models: components["schemas"]["ModelCatalogEntry"][];
         };
@@ -3529,6 +3795,62 @@ export interface components {
             pricingMode?: "flat" | "per-second" | "per-output";
         } & {
             [key: string]: unknown;
+        };
+        /** @description Discriminated by `action`. All actions select a track from a completed Suno job with `index` (1–2) or `trackId`. `extend` continues the track from `continueAt` (defaults to the end of the track); `cover` re-generates it in a new style while keeping its melody; `add_vocals` layers AI vocals (required `prompt` = lyrics) onto it; `stems` splits it into vocals + instrumental files. */
+        SunoActionRequest: {
+            /** @enum {string} */
+            action: "extend";
+            continueAt?: number;
+            index?: 1 | 2;
+            negative_tags?: string;
+            /** Format: uuid */
+            parentJobId: string;
+            prompt?: string;
+            style?: string;
+            title?: string;
+            trackId?: string;
+            webhookEvents?: ("progress" | "completed" | "failed")[];
+            /** Format: uri */
+            webhookUrl?: string;
+        } | {
+            /** @enum {string} */
+            action: "cover";
+            audio_weight?: number;
+            index?: 1 | 2;
+            negative_tags?: string;
+            /** Format: uuid */
+            parentJobId: string;
+            prompt?: string;
+            style?: string;
+            title?: string;
+            trackId?: string;
+            webhookEvents?: ("progress" | "completed" | "failed")[];
+            /** Format: uri */
+            webhookUrl?: string;
+        } | {
+            /** @enum {string} */
+            action: "add_vocals";
+            index?: 1 | 2;
+            negative_tags?: string;
+            /** Format: uuid */
+            parentJobId: string;
+            prompt: string;
+            style?: string;
+            title?: string;
+            trackId?: string;
+            webhookEvents?: ("progress" | "completed" | "failed")[];
+            /** Format: uri */
+            webhookUrl?: string;
+        } | {
+            /** @enum {string} */
+            action: "stems";
+            index?: 1 | 2;
+            /** Format: uuid */
+            parentJobId: string;
+            trackId?: string;
+            webhookEvents?: ("progress" | "completed" | "failed")[];
+            /** Format: uri */
+            webhookUrl?: string;
         };
         /** @description Short-lived CDN-hosted upload. The URL drops straight into any `start_image` / `image` / `video` field in the generation schemas. */
         Upload: {

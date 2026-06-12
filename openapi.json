@@ -3662,7 +3662,7 @@
         ]
       },
       "GenerateMusicRequest": {
-        "description": "Discriminated by `model`. Covers Suno, Udio, Producer, Lyria 3 (clip + pro), and ElevenLabs Music.",
+        "description": "Discriminated by `model`. Covers Suno, Udio, Producer, Lyria 3 (clip + pro), ElevenLabs Music, and Mureka.",
         "oneOf": [
           {
             "additionalProperties": false,
@@ -4051,6 +4051,68 @@
               },
               "prompt": {
                 "maxLength": 5000,
+                "minLength": 1,
+                "type": "string"
+              },
+              "webhookEvents": {
+                "items": {
+                  "enum": [
+                    "progress",
+                    "completed",
+                    "failed"
+                  ],
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "webhookUrl": {
+                "format": "uri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "prompt",
+              "model"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "model": {
+                "enum": [
+                  "mureka"
+                ],
+                "type": "string"
+              },
+              "murekaParams": {
+                "additionalProperties": false,
+                "properties": {
+                  "instrumental": {
+                    "default": false,
+                    "type": "boolean"
+                  },
+                  "lyrics": {
+                    "maxLength": 3000,
+                    "type": "string"
+                  },
+                  "model_version": {
+                    "default": "auto",
+                    "enum": [
+                      "auto",
+                      "mureka-7.6",
+                      "mureka-o2",
+                      "mureka-8",
+                      "mureka-9"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "prompt": {
+                "maxLength": 1024,
                 "minLength": 1,
                 "type": "string"
               },
@@ -8327,6 +8389,286 @@
         ],
         "type": "object"
       },
+      "MidjourneyActionRequest": {
+        "description": "Discriminated by `action`. Grid actions (`upsample`/`variation`) take an `index` (1–4) and act on a completed grid job; upsample actions (`inpaint`/`outpaint`/`pan`) act on a completed upsample job.",
+        "oneOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "action": {
+                "enum": [
+                  "upsample"
+                ],
+                "type": "string"
+              },
+              "index": {
+                "anyOf": [
+                  {
+                    "enum": [
+                      1
+                    ],
+                    "type": "number"
+                  },
+                  {
+                    "enum": [
+                      2
+                    ],
+                    "type": "number"
+                  },
+                  {
+                    "enum": [
+                      3
+                    ],
+                    "type": "number"
+                  },
+                  {
+                    "enum": [
+                      4
+                    ],
+                    "type": "number"
+                  }
+                ]
+              },
+              "parentJobId": {
+                "format": "uuid",
+                "type": "string"
+              },
+              "webhookEvents": {
+                "items": {
+                  "enum": [
+                    "progress",
+                    "completed",
+                    "failed"
+                  ],
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "webhookUrl": {
+                "format": "uri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "action",
+              "index",
+              "parentJobId"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "action": {
+                "enum": [
+                  "variation"
+                ],
+                "type": "string"
+              },
+              "index": {
+                "anyOf": [
+                  {
+                    "enum": [
+                      1
+                    ],
+                    "type": "number"
+                  },
+                  {
+                    "enum": [
+                      2
+                    ],
+                    "type": "number"
+                  },
+                  {
+                    "enum": [
+                      3
+                    ],
+                    "type": "number"
+                  },
+                  {
+                    "enum": [
+                      4
+                    ],
+                    "type": "number"
+                  }
+                ]
+              },
+              "parentJobId": {
+                "format": "uuid",
+                "type": "string"
+              },
+              "webhookEvents": {
+                "items": {
+                  "enum": [
+                    "progress",
+                    "completed",
+                    "failed"
+                  ],
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "webhookUrl": {
+                "format": "uri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "action",
+              "index",
+              "parentJobId"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "action": {
+                "enum": [
+                  "inpaint"
+                ],
+                "type": "string"
+              },
+              "mask": {
+                "maxLength": 12000000,
+                "minLength": 1,
+                "type": "string"
+              },
+              "parentJobId": {
+                "format": "uuid",
+                "type": "string"
+              },
+              "prompt": {
+                "maxLength": 2000,
+                "type": "string"
+              },
+              "webhookEvents": {
+                "items": {
+                  "enum": [
+                    "progress",
+                    "completed",
+                    "failed"
+                  ],
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "webhookUrl": {
+                "format": "uri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "action",
+              "mask",
+              "parentJobId"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "action": {
+                "enum": [
+                  "outpaint"
+                ],
+                "type": "string"
+              },
+              "parentJobId": {
+                "format": "uuid",
+                "type": "string"
+              },
+              "webhookEvents": {
+                "items": {
+                  "enum": [
+                    "progress",
+                    "completed",
+                    "failed"
+                  ],
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "webhookUrl": {
+                "format": "uri",
+                "type": "string"
+              },
+              "zoomRatio": {
+                "anyOf": [
+                  {
+                    "enum": [
+                      1.5
+                    ],
+                    "type": "number"
+                  },
+                  {
+                    "enum": [
+                      2
+                    ],
+                    "type": "number"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "action",
+              "zoomRatio",
+              "parentJobId"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "action": {
+                "enum": [
+                  "pan"
+                ],
+                "type": "string"
+              },
+              "direction": {
+                "enum": [
+                  "up",
+                  "down",
+                  "left",
+                  "right"
+                ],
+                "type": "string"
+              },
+              "parentJobId": {
+                "format": "uuid",
+                "type": "string"
+              },
+              "webhookEvents": {
+                "items": {
+                  "enum": [
+                    "progress",
+                    "completed",
+                    "failed"
+                  ],
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "webhookUrl": {
+                "format": "uri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "action",
+              "direction",
+              "parentJobId"
+            ],
+            "type": "object"
+          }
+        ]
+      },
       "ModelCatalog": {
         "properties": {
           "models": {
@@ -8383,6 +8725,298 @@
           "modality"
         ],
         "type": "object"
+      },
+      "SunoActionRequest": {
+        "description": "Discriminated by `action`. All actions select a track from a completed Suno job with `index` (1–2) or `trackId`. `extend` continues the track from `continueAt` (defaults to the end of the track); `cover` re-generates it in a new style while keeping its melody; `add_vocals` layers AI vocals (required `prompt` = lyrics) onto it; `stems` splits it into vocals + instrumental files.",
+        "oneOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "action": {
+                "enum": [
+                  "extend"
+                ],
+                "type": "string"
+              },
+              "continueAt": {
+                "exclusiveMinimum": 0,
+                "type": "number"
+              },
+              "index": {
+                "anyOf": [
+                  {
+                    "enum": [
+                      1
+                    ],
+                    "type": "number"
+                  },
+                  {
+                    "enum": [
+                      2
+                    ],
+                    "type": "number"
+                  }
+                ]
+              },
+              "negative_tags": {
+                "maxLength": 500,
+                "type": "string"
+              },
+              "parentJobId": {
+                "format": "uuid",
+                "type": "string"
+              },
+              "prompt": {
+                "maxLength": 5000,
+                "type": "string"
+              },
+              "style": {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              "title": {
+                "maxLength": 80,
+                "type": "string"
+              },
+              "trackId": {
+                "maxLength": 200,
+                "minLength": 1,
+                "type": "string"
+              },
+              "webhookEvents": {
+                "items": {
+                  "enum": [
+                    "progress",
+                    "completed",
+                    "failed"
+                  ],
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "webhookUrl": {
+                "format": "uri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "action",
+              "parentJobId"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "action": {
+                "enum": [
+                  "cover"
+                ],
+                "type": "string"
+              },
+              "audio_weight": {
+                "maximum": 1,
+                "minimum": 0,
+                "type": "number"
+              },
+              "index": {
+                "anyOf": [
+                  {
+                    "enum": [
+                      1
+                    ],
+                    "type": "number"
+                  },
+                  {
+                    "enum": [
+                      2
+                    ],
+                    "type": "number"
+                  }
+                ]
+              },
+              "negative_tags": {
+                "maxLength": 500,
+                "type": "string"
+              },
+              "parentJobId": {
+                "format": "uuid",
+                "type": "string"
+              },
+              "prompt": {
+                "maxLength": 5000,
+                "type": "string"
+              },
+              "style": {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              "title": {
+                "maxLength": 80,
+                "type": "string"
+              },
+              "trackId": {
+                "maxLength": 200,
+                "minLength": 1,
+                "type": "string"
+              },
+              "webhookEvents": {
+                "items": {
+                  "enum": [
+                    "progress",
+                    "completed",
+                    "failed"
+                  ],
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "webhookUrl": {
+                "format": "uri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "action",
+              "parentJobId"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "action": {
+                "enum": [
+                  "add_vocals"
+                ],
+                "type": "string"
+              },
+              "index": {
+                "anyOf": [
+                  {
+                    "enum": [
+                      1
+                    ],
+                    "type": "number"
+                  },
+                  {
+                    "enum": [
+                      2
+                    ],
+                    "type": "number"
+                  }
+                ]
+              },
+              "negative_tags": {
+                "maxLength": 500,
+                "type": "string"
+              },
+              "parentJobId": {
+                "format": "uuid",
+                "type": "string"
+              },
+              "prompt": {
+                "maxLength": 5000,
+                "minLength": 1,
+                "type": "string"
+              },
+              "style": {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              "title": {
+                "maxLength": 80,
+                "type": "string"
+              },
+              "trackId": {
+                "maxLength": 200,
+                "minLength": 1,
+                "type": "string"
+              },
+              "webhookEvents": {
+                "items": {
+                  "enum": [
+                    "progress",
+                    "completed",
+                    "failed"
+                  ],
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "webhookUrl": {
+                "format": "uri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "action",
+              "prompt",
+              "parentJobId"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "action": {
+                "enum": [
+                  "stems"
+                ],
+                "type": "string"
+              },
+              "index": {
+                "anyOf": [
+                  {
+                    "enum": [
+                      1
+                    ],
+                    "type": "number"
+                  },
+                  {
+                    "enum": [
+                      2
+                    ],
+                    "type": "number"
+                  }
+                ]
+              },
+              "parentJobId": {
+                "format": "uuid",
+                "type": "string"
+              },
+              "trackId": {
+                "maxLength": 200,
+                "minLength": 1,
+                "type": "string"
+              },
+              "webhookEvents": {
+                "items": {
+                  "enum": [
+                    "progress",
+                    "completed",
+                    "failed"
+                  ],
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "webhookUrl": {
+                "format": "uri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "action",
+              "parentJobId"
+            ],
+            "type": "object"
+          }
+        ]
       },
       "Upload": {
         "description": "Short-lived CDN-hosted upload. The URL drops straight into any `start_image` / `image` / `video` field in the generation schemas.",
@@ -9178,6 +9812,110 @@
           }
         ],
         "summary": "Submit an image generation job",
+        "tags": [
+          "Images"
+        ]
+      }
+    },
+    "/v2/images/midjourney/action": {
+      "post": {
+        "description": "Runs a follow-up action on a completed `midjourney` job, referenced by its job ID. Grid actions — `upsample` (U1–U4) and `variation` (V1–V4) — act on a grid-producing parent; `index` selects which of the 4 images. Upsample actions — `inpaint` (Vary Region, base64 `mask` + optional `prompt`), `outpaint` (Zoom Out, `zoomRatio` 1.5 or 2), and `pan` (`direction` up/down/left/right) — act on a completed upsample job. Upsample returns a single image; every other action returns a fresh 4-image grid (which can itself be acted on). Returns 409 when the requested action is not available for the parent job.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MidjourneyActionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobAccepted"
+                }
+              }
+            },
+            "description": "Job accepted and queued. Track via `GET /v2/jobs/{id}` or webhook."
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationError"
+                }
+              }
+            },
+            "description": "Request body failed validation."
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Authentication failed (missing / invalid API key)."
+          },
+          "402": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InsufficientCredits"
+                }
+              }
+            },
+            "description": "Team has insufficient credits to run this model."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Authenticated but the API key is inactive or lacks permission."
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Rate limit exceeded. Retry after the `Retry-After` seconds."
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service temporarily unavailable (queue / DB outage). Retry with backoff."
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          },
+          {
+            "BearerAuth": []
+          }
+        ],
+        "summary": "Run a follow-up action on a completed Midjourney image",
         "tags": [
           "Images"
         ]
@@ -10072,7 +10810,7 @@
     },
     "/v2/music/generate": {
       "post": {
-        "description": "Creates a music job across Suno, Udio, Producer, Lyria 3 and ElevenLabs Music. Suno and Udio always return TWO songs per call — the result is an array.",
+        "description": "Creates a music job across Suno, Udio, Producer, Lyria 3, ElevenLabs Music and Mureka. Suno, Udio and Mureka always return TWO songs per call — the result is an array.",
         "parameters": [
           {
             "$ref": "#/components/parameters/IdempotencyKey"
@@ -10169,6 +10907,110 @@
           }
         ],
         "summary": "Submit a music generation job",
+        "tags": [
+          "Music"
+        ]
+      }
+    },
+    "/v2/music/suno/action": {
+      "post": {
+        "description": "Runs a follow-up action on a completed `suno` job, referenced by its job ID. Every action selects one of the parent's tracks with `index` (1–2) or `trackId` (from the parent's `result.tracks[].id`). `extend` continues the track from `continueAt` (seconds; defaults to the end of the track and must be less than its duration). `cover` re-generates the track in a new style while keeping its core melody (`audio_weight` 0–1 controls how closely it follows the source). `add_vocals` layers AI-generated vocals onto the track — `prompt` (the lyrics) is required; intended for instrumental parents. `stems` splits the track into separate vocals and instrumental audio files. Optional `prompt` (lyrics in custom mode, a description otherwise), `title`, `style`, and `negative_tags` override the inherited values. Extend, cover, and add_vocals results are fresh pairs of Suno tracks and can be acted on again; stems results are 2 plain audio files (`vocals` + `instrumental`) that accept no further actions. Returns 409 when the action is not available for the parent job.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SunoActionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobAccepted"
+                }
+              }
+            },
+            "description": "Job accepted and queued. Track via `GET /v2/jobs/{id}` or webhook."
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationError"
+                }
+              }
+            },
+            "description": "Request body failed validation."
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Authentication failed (missing / invalid API key)."
+          },
+          "402": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InsufficientCredits"
+                }
+              }
+            },
+            "description": "Team has insufficient credits to run this model."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Authenticated but the API key is inactive or lacks permission."
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Rate limit exceeded. Retry after the `Retry-After` seconds."
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service temporarily unavailable (queue / DB outage). Retry with backoff."
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          },
+          {
+            "BearerAuth": []
+          }
+        ],
+        "summary": "Run a follow-up action on a completed Suno job",
         "tags": [
           "Music"
         ]
