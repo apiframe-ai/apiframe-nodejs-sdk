@@ -86,7 +86,7 @@ console.log(job.result);
 
 Every request is authenticated with your API key in the `X-API-Key`
 header. Generate one at
-[apiframe.ai/dashboard](https://apiframe.ai/dashboard) and pass it to
+[console.apiframe.ai/dashboard/api-keys](https://console.apiframe.ai/dashboard/api-keys) and pass it to
 the constructor:
 
 ```ts
