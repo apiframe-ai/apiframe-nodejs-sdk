@@ -341,6 +341,83 @@
           {
             "additionalProperties": false,
             "properties": {
+              "model": {
+                "enum": [
+                  "nano-banana-2-lite"
+                ],
+                "type": "string"
+              },
+              "nanoBananaParams": {
+                "additionalProperties": false,
+                "properties": {
+                  "aspect_ratio": {
+                    "type": "string"
+                  },
+                  "google_search": {
+                    "type": "boolean"
+                  },
+                  "image_input": {
+                    "items": {
+                      "format": "uri",
+                      "type": "string"
+                    },
+                    "maxItems": 14,
+                    "type": "array"
+                  },
+                  "image_search": {
+                    "type": "boolean"
+                  },
+                  "output_format": {
+                    "enum": [
+                      "jpg",
+                      "png",
+                      "webp"
+                    ],
+                    "type": "string"
+                  },
+                  "resolution": {
+                    "enum": [
+                      "512px",
+                      "1K",
+                      "2K",
+                      "4K"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "prompt": {
+                "maxLength": 2000,
+                "minLength": 1,
+                "type": "string"
+              },
+              "webhookEvents": {
+                "items": {
+                  "enum": [
+                    "progress",
+                    "completed",
+                    "failed"
+                  ],
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "webhookUrl": {
+                "format": "uri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "prompt",
+              "model"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
               "fluxParams": {
                 "additionalProperties": false,
                 "properties": {
@@ -1489,6 +1566,97 @@
           {
             "additionalProperties": false,
             "properties": {
+              "model": {
+                "enum": [
+                  "seedream-5-pro"
+                ],
+                "type": "string"
+              },
+              "prompt": {
+                "maxLength": 2000,
+                "minLength": 1,
+                "type": "string"
+              },
+              "seedreamParams": {
+                "additionalProperties": false,
+                "properties": {
+                  "aspect_ratio": {
+                    "type": "string"
+                  },
+                  "enhance_prompt": {
+                    "type": "boolean"
+                  },
+                  "guidance_scale": {
+                    "maximum": 10,
+                    "minimum": 1,
+                    "type": "number"
+                  },
+                  "height": {
+                    "maximum": 4096,
+                    "minimum": 512,
+                    "type": "integer"
+                  },
+                  "image_input": {
+                    "items": {
+                      "format": "uri",
+                      "type": "string"
+                    },
+                    "maxItems": 14,
+                    "type": "array"
+                  },
+                  "output_format": {
+                    "enum": [
+                      "jpg",
+                      "png"
+                    ],
+                    "type": "string"
+                  },
+                  "resolution": {
+                    "type": "string"
+                  },
+                  "seed": {
+                    "type": "integer"
+                  },
+                  "size": {
+                    "type": "string"
+                  },
+                  "use_pre_llm": {
+                    "type": "boolean"
+                  },
+                  "width": {
+                    "maximum": 4096,
+                    "minimum": 512,
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              },
+              "webhookEvents": {
+                "items": {
+                  "enum": [
+                    "progress",
+                    "completed",
+                    "failed"
+                  ],
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "webhookUrl": {
+                "format": "uri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "prompt",
+              "model"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
               "ideogramParams": {
                 "additionalProperties": false,
                 "properties": {
@@ -2226,6 +2394,297 @@
                     "type": "string"
                   }
                 },
+                "type": "object"
+              },
+              "model": {
+                "enum": [
+                  "ideogram-v4-balanced"
+                ],
+                "type": "string"
+              },
+              "prompt": {
+                "maxLength": 2000,
+                "minLength": 1,
+                "type": "string"
+              },
+              "webhookEvents": {
+                "items": {
+                  "enum": [
+                    "progress",
+                    "completed",
+                    "failed"
+                  ],
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "webhookUrl": {
+                "format": "uri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "prompt",
+              "model"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "ideogramParams": {
+                "additionalProperties": false,
+                "properties": {
+                  "aspect_ratio": {
+                    "type": "string"
+                  },
+                  "character_reference_image": {
+                    "format": "uri",
+                    "type": "string"
+                  },
+                  "image": {
+                    "format": "uri",
+                    "type": "string"
+                  },
+                  "magic_prompt_option": {
+                    "enum": [
+                      "Auto",
+                      "On",
+                      "Off"
+                    ],
+                    "type": "string"
+                  },
+                  "mask": {
+                    "format": "uri",
+                    "type": "string"
+                  },
+                  "negative_prompt": {
+                    "type": "string"
+                  },
+                  "rendering_speed": {
+                    "enum": [
+                      "default",
+                      "turbo",
+                      "quality"
+                    ],
+                    "type": "string"
+                  },
+                  "resolution": {
+                    "type": "string"
+                  },
+                  "seed": {
+                    "type": "integer"
+                  },
+                  "style_preset": {
+                    "type": "string"
+                  },
+                  "style_reference_images": {
+                    "items": {
+                      "format": "uri",
+                      "type": "string"
+                    },
+                    "maxItems": 3,
+                    "type": "array"
+                  },
+                  "style_type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "model": {
+                "enum": [
+                  "ideogram-v4-turbo"
+                ],
+                "type": "string"
+              },
+              "prompt": {
+                "maxLength": 2000,
+                "minLength": 1,
+                "type": "string"
+              },
+              "webhookEvents": {
+                "items": {
+                  "enum": [
+                    "progress",
+                    "completed",
+                    "failed"
+                  ],
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "webhookUrl": {
+                "format": "uri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "prompt",
+              "model"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "ideogramParams": {
+                "additionalProperties": false,
+                "properties": {
+                  "aspect_ratio": {
+                    "type": "string"
+                  },
+                  "character_reference_image": {
+                    "format": "uri",
+                    "type": "string"
+                  },
+                  "image": {
+                    "format": "uri",
+                    "type": "string"
+                  },
+                  "magic_prompt_option": {
+                    "enum": [
+                      "Auto",
+                      "On",
+                      "Off"
+                    ],
+                    "type": "string"
+                  },
+                  "mask": {
+                    "format": "uri",
+                    "type": "string"
+                  },
+                  "negative_prompt": {
+                    "type": "string"
+                  },
+                  "rendering_speed": {
+                    "enum": [
+                      "default",
+                      "turbo",
+                      "quality"
+                    ],
+                    "type": "string"
+                  },
+                  "resolution": {
+                    "type": "string"
+                  },
+                  "seed": {
+                    "type": "integer"
+                  },
+                  "style_preset": {
+                    "type": "string"
+                  },
+                  "style_reference_images": {
+                    "items": {
+                      "format": "uri",
+                      "type": "string"
+                    },
+                    "maxItems": 3,
+                    "type": "array"
+                  },
+                  "style_type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "model": {
+                "enum": [
+                  "ideogram-v4-quality"
+                ],
+                "type": "string"
+              },
+              "prompt": {
+                "maxLength": 2000,
+                "minLength": 1,
+                "type": "string"
+              },
+              "webhookEvents": {
+                "items": {
+                  "enum": [
+                    "progress",
+                    "completed",
+                    "failed"
+                  ],
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "webhookUrl": {
+                "format": "uri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "prompt",
+              "model"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "ideogramParams": {
+                "additionalProperties": false,
+                "properties": {
+                  "aspect_ratio": {
+                    "type": "string"
+                  },
+                  "character_reference_image": {
+                    "format": "uri",
+                    "type": "string"
+                  },
+                  "image": {
+                    "format": "uri",
+                    "type": "string"
+                  },
+                  "magic_prompt_option": {
+                    "enum": [
+                      "Auto",
+                      "On",
+                      "Off"
+                    ],
+                    "type": "string"
+                  },
+                  "mask": {
+                    "format": "uri",
+                    "type": "string"
+                  },
+                  "negative_prompt": {
+                    "type": "string"
+                  },
+                  "rendering_speed": {
+                    "enum": [
+                      "default",
+                      "turbo",
+                      "quality"
+                    ],
+                    "type": "string"
+                  },
+                  "resolution": {
+                    "type": "string"
+                  },
+                  "seed": {
+                    "type": "integer"
+                  },
+                  "style_preset": {
+                    "type": "string"
+                  },
+                  "style_reference_images": {
+                    "items": {
+                      "format": "uri",
+                      "type": "string"
+                    },
+                    "maxItems": 3,
+                    "type": "array"
+                  },
+                  "style_type": {
+                    "type": "string"
+                  }
+                },
                 "required": [
                   "character_reference_image"
                 ],
@@ -2263,6 +2722,390 @@
               "prompt",
               "model",
               "ideogramParams"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "model": {
+                "enum": [
+                  "stable-diffusion-3.5-large"
+                ],
+                "type": "string"
+              },
+              "prompt": {
+                "maxLength": 2000,
+                "minLength": 1,
+                "type": "string"
+              },
+              "stableDiffusionParams": {
+                "additionalProperties": false,
+                "properties": {
+                  "aspect_ratio": {
+                    "enum": [
+                      "1:1",
+                      "16:9",
+                      "21:9",
+                      "3:2",
+                      "2:3",
+                      "4:5",
+                      "5:4",
+                      "9:16",
+                      "9:21"
+                    ],
+                    "type": "string"
+                  },
+                  "cfg": {
+                    "maximum": 20,
+                    "minimum": 0,
+                    "type": "number"
+                  },
+                  "image": {
+                    "format": "uri",
+                    "type": "string"
+                  },
+                  "negative_prompt": {
+                    "maxLength": 2000,
+                    "type": "string"
+                  },
+                  "output_format": {
+                    "enum": [
+                      "webp",
+                      "jpg",
+                      "png"
+                    ],
+                    "type": "string"
+                  },
+                  "output_quality": {
+                    "maximum": 100,
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "prompt_strength": {
+                    "maximum": 1,
+                    "minimum": 0,
+                    "type": "number"
+                  },
+                  "seed": {
+                    "type": "integer"
+                  },
+                  "steps": {
+                    "maximum": 40,
+                    "minimum": 1,
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              },
+              "webhookEvents": {
+                "items": {
+                  "enum": [
+                    "progress",
+                    "completed",
+                    "failed"
+                  ],
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "webhookUrl": {
+                "format": "uri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "prompt",
+              "model"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "model": {
+                "enum": [
+                  "stable-diffusion-3.5-large-turbo"
+                ],
+                "type": "string"
+              },
+              "prompt": {
+                "maxLength": 2000,
+                "minLength": 1,
+                "type": "string"
+              },
+              "stableDiffusionParams": {
+                "additionalProperties": false,
+                "properties": {
+                  "aspect_ratio": {
+                    "enum": [
+                      "1:1",
+                      "16:9",
+                      "21:9",
+                      "3:2",
+                      "2:3",
+                      "4:5",
+                      "5:4",
+                      "9:16",
+                      "9:21"
+                    ],
+                    "type": "string"
+                  },
+                  "cfg": {
+                    "maximum": 20,
+                    "minimum": 0,
+                    "type": "number"
+                  },
+                  "image": {
+                    "format": "uri",
+                    "type": "string"
+                  },
+                  "negative_prompt": {
+                    "maxLength": 2000,
+                    "type": "string"
+                  },
+                  "output_format": {
+                    "enum": [
+                      "webp",
+                      "jpg",
+                      "png"
+                    ],
+                    "type": "string"
+                  },
+                  "output_quality": {
+                    "maximum": 100,
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "prompt_strength": {
+                    "maximum": 1,
+                    "minimum": 0,
+                    "type": "number"
+                  },
+                  "seed": {
+                    "type": "integer"
+                  },
+                  "steps": {
+                    "maximum": 40,
+                    "minimum": 1,
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              },
+              "webhookEvents": {
+                "items": {
+                  "enum": [
+                    "progress",
+                    "completed",
+                    "failed"
+                  ],
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "webhookUrl": {
+                "format": "uri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "prompt",
+              "model"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "model": {
+                "enum": [
+                  "stable-diffusion-3.5-medium"
+                ],
+                "type": "string"
+              },
+              "prompt": {
+                "maxLength": 2000,
+                "minLength": 1,
+                "type": "string"
+              },
+              "stableDiffusionParams": {
+                "additionalProperties": false,
+                "properties": {
+                  "aspect_ratio": {
+                    "enum": [
+                      "1:1",
+                      "16:9",
+                      "21:9",
+                      "3:2",
+                      "2:3",
+                      "4:5",
+                      "5:4",
+                      "9:16",
+                      "9:21"
+                    ],
+                    "type": "string"
+                  },
+                  "cfg": {
+                    "maximum": 20,
+                    "minimum": 0,
+                    "type": "number"
+                  },
+                  "image": {
+                    "format": "uri",
+                    "type": "string"
+                  },
+                  "negative_prompt": {
+                    "maxLength": 2000,
+                    "type": "string"
+                  },
+                  "output_format": {
+                    "enum": [
+                      "webp",
+                      "jpg",
+                      "png"
+                    ],
+                    "type": "string"
+                  },
+                  "output_quality": {
+                    "maximum": 100,
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "prompt_strength": {
+                    "maximum": 1,
+                    "minimum": 0,
+                    "type": "number"
+                  },
+                  "seed": {
+                    "type": "integer"
+                  },
+                  "steps": {
+                    "maximum": 40,
+                    "minimum": 1,
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              },
+              "webhookEvents": {
+                "items": {
+                  "enum": [
+                    "progress",
+                    "completed",
+                    "failed"
+                  ],
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "webhookUrl": {
+                "format": "uri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "prompt",
+              "model"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "model": {
+                "enum": [
+                  "stable-diffusion-3"
+                ],
+                "type": "string"
+              },
+              "prompt": {
+                "maxLength": 2000,
+                "minLength": 1,
+                "type": "string"
+              },
+              "stableDiffusionParams": {
+                "additionalProperties": false,
+                "properties": {
+                  "aspect_ratio": {
+                    "enum": [
+                      "1:1",
+                      "16:9",
+                      "21:9",
+                      "3:2",
+                      "2:3",
+                      "4:5",
+                      "5:4",
+                      "9:16",
+                      "9:21"
+                    ],
+                    "type": "string"
+                  },
+                  "cfg": {
+                    "maximum": 20,
+                    "minimum": 0,
+                    "type": "number"
+                  },
+                  "image": {
+                    "format": "uri",
+                    "type": "string"
+                  },
+                  "negative_prompt": {
+                    "maxLength": 2000,
+                    "type": "string"
+                  },
+                  "output_format": {
+                    "enum": [
+                      "webp",
+                      "jpg",
+                      "png"
+                    ],
+                    "type": "string"
+                  },
+                  "output_quality": {
+                    "maximum": 100,
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "prompt_strength": {
+                    "maximum": 1,
+                    "minimum": 0,
+                    "type": "number"
+                  },
+                  "seed": {
+                    "type": "integer"
+                  },
+                  "steps": {
+                    "maximum": 40,
+                    "minimum": 1,
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              },
+              "webhookEvents": {
+                "items": {
+                  "enum": [
+                    "progress",
+                    "completed",
+                    "failed"
+                  ],
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "webhookUrl": {
+                "format": "uri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "prompt",
+              "model"
             ],
             "type": "object"
           },
@@ -4550,6 +5393,204 @@
           {
             "additionalProperties": false,
             "properties": {
+              "klingParams": {
+                "additionalProperties": false,
+                "properties": {
+                  "aspect_ratio": {
+                    "enum": [
+                      "16:9",
+                      "9:16",
+                      "1:1"
+                    ],
+                    "type": "string"
+                  },
+                  "duration": {
+                    "maximum": 15,
+                    "minimum": 3,
+                    "type": "integer"
+                  },
+                  "end_image": {
+                    "format": "uri",
+                    "type": "string"
+                  },
+                  "generate_audio": {
+                    "type": "boolean"
+                  },
+                  "keep_original_sound": {
+                    "type": "boolean"
+                  },
+                  "mode": {
+                    "enum": [
+                      "standard",
+                      "pro",
+                      "4k"
+                    ],
+                    "type": "string"
+                  },
+                  "multi_prompt": {
+                    "items": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "duration": {
+                          "maximum": 15,
+                          "minimum": 1,
+                          "type": "integer"
+                        },
+                        "prompt": {
+                          "maxLength": 4000,
+                          "minLength": 1,
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "prompt",
+                        "duration"
+                      ],
+                      "type": "object"
+                    },
+                    "maxItems": 6,
+                    "type": "array"
+                  },
+                  "negative_prompt": {
+                    "maxLength": 2500,
+                    "type": "string"
+                  },
+                  "reference_images": {
+                    "items": {
+                      "format": "uri",
+                      "type": "string"
+                    },
+                    "maxItems": 7,
+                    "type": "array"
+                  },
+                  "reference_video": {
+                    "format": "uri",
+                    "type": "string"
+                  },
+                  "start_image": {
+                    "format": "uri",
+                    "type": "string"
+                  },
+                  "video_reference_type": {
+                    "enum": [
+                      "feature",
+                      "base"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "model": {
+                "enum": [
+                  "kling-3.0-omni"
+                ],
+                "type": "string"
+              },
+              "prompt": {
+                "maxLength": 4000,
+                "minLength": 1,
+                "type": "string"
+              },
+              "webhookEvents": {
+                "items": {
+                  "enum": [
+                    "progress",
+                    "completed",
+                    "failed"
+                  ],
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "webhookUrl": {
+                "format": "uri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "prompt",
+              "model"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "klingParams": {
+                "additionalProperties": false,
+                "properties": {
+                  "character_orientation": {
+                    "enum": [
+                      "image",
+                      "video"
+                    ],
+                    "type": "string"
+                  },
+                  "image": {
+                    "format": "uri",
+                    "type": "string"
+                  },
+                  "keep_original_sound": {
+                    "type": "boolean"
+                  },
+                  "mode": {
+                    "enum": [
+                      "std",
+                      "pro"
+                    ],
+                    "type": "string"
+                  },
+                  "video": {
+                    "format": "uri",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "image",
+                  "video"
+                ],
+                "type": "object"
+              },
+              "model": {
+                "enum": [
+                  "kling-3.0-motion-control"
+                ],
+                "type": "string"
+              },
+              "prompt": {
+                "maxLength": 4000,
+                "minLength": 1,
+                "type": "string"
+              },
+              "webhookEvents": {
+                "items": {
+                  "enum": [
+                    "progress",
+                    "completed",
+                    "failed"
+                  ],
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "webhookUrl": {
+                "format": "uri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "prompt",
+              "model",
+              "klingParams"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
               "model": {
                 "enum": [
                   "sora-2"
@@ -5381,7 +6422,8 @@
                     "enum": [
                       "480p",
                       "720p",
-                      "1080p"
+                      "1080p",
+                      "4k"
                     ],
                     "type": "string"
                   },
@@ -5530,6 +6572,304 @@
                     "enum": [
                       "480p",
                       "720p"
+                    ],
+                    "type": "string"
+                  },
+                  "return_last_frame": {
+                    "type": "boolean"
+                  },
+                  "seed": {
+                    "type": "integer"
+                  },
+                  "start_image": {
+                    "format": "uri",
+                    "type": "string"
+                  },
+                  "web_search": {
+                    "type": "boolean"
+                  }
+                },
+                "type": "object"
+              },
+              "webhookEvents": {
+                "items": {
+                  "enum": [
+                    "progress",
+                    "completed",
+                    "failed"
+                  ],
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "webhookUrl": {
+                "format": "uri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "prompt",
+              "model"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "model": {
+                "enum": [
+                  "seedance-2-mini"
+                ],
+                "type": "string"
+              },
+              "prompt": {
+                "maxLength": 4000,
+                "minLength": 1,
+                "type": "string"
+              },
+              "seedanceParams": {
+                "additionalProperties": false,
+                "properties": {
+                  "aspect_ratio": {
+                    "anyOf": [
+                      {
+                        "enum": [
+                          "21:9"
+                        ],
+                        "type": "string"
+                      },
+                      {
+                        "enum": [
+                          "16:9"
+                        ],
+                        "type": "string"
+                      },
+                      {
+                        "enum": [
+                          "4:3"
+                        ],
+                        "type": "string"
+                      },
+                      {
+                        "enum": [
+                          "1:1"
+                        ],
+                        "type": "string"
+                      },
+                      {
+                        "enum": [
+                          "3:4"
+                        ],
+                        "type": "string"
+                      },
+                      {
+                        "enum": [
+                          "9:16"
+                        ],
+                        "type": "string"
+                      },
+                      {
+                        "enum": [
+                          "adaptive"
+                        ],
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "camera_fixed": {
+                    "type": "boolean"
+                  },
+                  "duration": {
+                    "maximum": 15,
+                    "minimum": 4,
+                    "type": "integer"
+                  },
+                  "end_image": {
+                    "format": "uri",
+                    "type": "string"
+                  },
+                  "generate_audio": {
+                    "type": "boolean"
+                  },
+                  "reference_audio_urls": {
+                    "items": {
+                      "format": "uri",
+                      "type": "string"
+                    },
+                    "maxItems": 3,
+                    "type": "array"
+                  },
+                  "reference_image_urls": {
+                    "items": {
+                      "format": "uri",
+                      "type": "string"
+                    },
+                    "maxItems": 9,
+                    "type": "array"
+                  },
+                  "reference_video_urls": {
+                    "items": {
+                      "format": "uri",
+                      "type": "string"
+                    },
+                    "maxItems": 3,
+                    "type": "array"
+                  },
+                  "resolution": {
+                    "enum": [
+                      "480p",
+                      "720p"
+                    ],
+                    "type": "string"
+                  },
+                  "return_last_frame": {
+                    "type": "boolean"
+                  },
+                  "seed": {
+                    "type": "integer"
+                  },
+                  "start_image": {
+                    "format": "uri",
+                    "type": "string"
+                  },
+                  "web_search": {
+                    "type": "boolean"
+                  }
+                },
+                "type": "object"
+              },
+              "webhookEvents": {
+                "items": {
+                  "enum": [
+                    "progress",
+                    "completed",
+                    "failed"
+                  ],
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "webhookUrl": {
+                "format": "uri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "prompt",
+              "model"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "model": {
+                "enum": [
+                  "seedance-2.5"
+                ],
+                "type": "string"
+              },
+              "prompt": {
+                "maxLength": 4000,
+                "minLength": 1,
+                "type": "string"
+              },
+              "seedanceParams": {
+                "additionalProperties": false,
+                "properties": {
+                  "aspect_ratio": {
+                    "anyOf": [
+                      {
+                        "enum": [
+                          "21:9"
+                        ],
+                        "type": "string"
+                      },
+                      {
+                        "enum": [
+                          "16:9"
+                        ],
+                        "type": "string"
+                      },
+                      {
+                        "enum": [
+                          "4:3"
+                        ],
+                        "type": "string"
+                      },
+                      {
+                        "enum": [
+                          "1:1"
+                        ],
+                        "type": "string"
+                      },
+                      {
+                        "enum": [
+                          "3:4"
+                        ],
+                        "type": "string"
+                      },
+                      {
+                        "enum": [
+                          "9:16"
+                        ],
+                        "type": "string"
+                      },
+                      {
+                        "enum": [
+                          "adaptive"
+                        ],
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "camera_fixed": {
+                    "type": "boolean"
+                  },
+                  "duration": {
+                    "maximum": 15,
+                    "minimum": 4,
+                    "type": "integer"
+                  },
+                  "end_image": {
+                    "format": "uri",
+                    "type": "string"
+                  },
+                  "generate_audio": {
+                    "type": "boolean"
+                  },
+                  "reference_audio_urls": {
+                    "items": {
+                      "format": "uri",
+                      "type": "string"
+                    },
+                    "maxItems": 3,
+                    "type": "array"
+                  },
+                  "reference_image_urls": {
+                    "items": {
+                      "format": "uri",
+                      "type": "string"
+                    },
+                    "maxItems": 9,
+                    "type": "array"
+                  },
+                  "reference_video_urls": {
+                    "items": {
+                      "format": "uri",
+                      "type": "string"
+                    },
+                    "maxItems": 3,
+                    "type": "array"
+                  },
+                  "resolution": {
+                    "enum": [
+                      "480p",
+                      "720p",
+                      "1080p",
+                      "4k"
                     ],
                     "type": "string"
                   },
@@ -6116,6 +7456,97 @@
                     },
                     "maxItems": 3,
                     "type": "array"
+                  },
+                  "resolution": {
+                    "enum": [
+                      "720p",
+                      "1080p"
+                    ],
+                    "type": "string"
+                  },
+                  "seed": {
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              },
+              "webhookEvents": {
+                "items": {
+                  "enum": [
+                    "progress",
+                    "completed",
+                    "failed"
+                  ],
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "webhookUrl": {
+                "format": "uri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "prompt",
+              "model"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "model": {
+                "enum": [
+                  "veo-3.1-lite"
+                ],
+                "type": "string"
+              },
+              "prompt": {
+                "maxLength": 4000,
+                "minLength": 1,
+                "type": "string"
+              },
+              "veoParams": {
+                "additionalProperties": false,
+                "properties": {
+                  "aspect_ratio": {
+                    "pattern": "^\\d+:\\d+$",
+                    "type": "string"
+                  },
+                  "duration": {
+                    "anyOf": [
+                      {
+                        "enum": [
+                          4
+                        ],
+                        "type": "number"
+                      },
+                      {
+                        "enum": [
+                          6
+                        ],
+                        "type": "number"
+                      },
+                      {
+                        "enum": [
+                          8
+                        ],
+                        "type": "number"
+                      }
+                    ]
+                  },
+                  "image": {
+                    "format": "uri",
+                    "type": "string"
+                  },
+                  "last_frame": {
+                    "format": "uri",
+                    "type": "string"
+                  },
+                  "negative_prompt": {
+                    "maxLength": 2000,
+                    "type": "string"
                   },
                   "resolution": {
                     "enum": [
@@ -7249,6 +8680,158 @@
               "prompt",
               "model",
               "wan27R2vParams"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "happyhorse10Params": {
+                "additionalProperties": false,
+                "properties": {
+                  "aspect_ratio": {
+                    "enum": [
+                      "16:9",
+                      "9:16",
+                      "1:1",
+                      "4:3",
+                      "3:4"
+                    ],
+                    "type": "string"
+                  },
+                  "duration": {
+                    "maximum": 15,
+                    "minimum": 3,
+                    "type": "integer"
+                  },
+                  "image": {
+                    "format": "uri",
+                    "type": "string"
+                  },
+                  "resolution": {
+                    "enum": [
+                      "720p",
+                      "1080p"
+                    ],
+                    "type": "string"
+                  },
+                  "seed": {
+                    "maximum": 2147483647,
+                    "minimum": 0,
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              },
+              "model": {
+                "enum": [
+                  "happyhorse-1.0"
+                ],
+                "type": "string"
+              },
+              "prompt": {
+                "maxLength": 2500,
+                "minLength": 1,
+                "type": "string"
+              },
+              "webhookEvents": {
+                "items": {
+                  "enum": [
+                    "progress",
+                    "completed",
+                    "failed"
+                  ],
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "webhookUrl": {
+                "format": "uri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "prompt",
+              "model"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "happyhorse11Params": {
+                "additionalProperties": false,
+                "properties": {
+                  "aspect_ratio": {
+                    "enum": [
+                      "16:9",
+                      "9:16",
+                      "1:1",
+                      "4:3",
+                      "3:4"
+                    ],
+                    "type": "string"
+                  },
+                  "duration": {
+                    "maximum": 15,
+                    "minimum": 3,
+                    "type": "integer"
+                  },
+                  "images": {
+                    "items": {
+                      "format": "uri",
+                      "type": "string"
+                    },
+                    "maxItems": 9,
+                    "type": "array"
+                  },
+                  "resolution": {
+                    "enum": [
+                      "720p",
+                      "1080p"
+                    ],
+                    "type": "string"
+                  },
+                  "seed": {
+                    "maximum": 2147483647,
+                    "minimum": 0,
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              },
+              "model": {
+                "enum": [
+                  "happyhorse-1.1"
+                ],
+                "type": "string"
+              },
+              "prompt": {
+                "maxLength": 2500,
+                "minLength": 1,
+                "type": "string"
+              },
+              "webhookEvents": {
+                "items": {
+                  "enum": [
+                    "progress",
+                    "completed",
+                    "failed"
+                  ],
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "webhookUrl": {
+                "format": "uri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "prompt",
+              "model"
             ],
             "type": "object"
           },

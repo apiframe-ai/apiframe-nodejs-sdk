@@ -1982,6 +1982,23 @@ export interface components {
             /** Format: uri */
             webhookUrl?: string;
         } | {
+            /** @enum {string} */
+            model: "nano-banana-2-lite";
+            nanoBananaParams?: {
+                aspect_ratio?: string;
+                google_search?: boolean;
+                image_input?: string[];
+                image_search?: boolean;
+                /** @enum {string} */
+                output_format?: "jpg" | "png" | "webp";
+                /** @enum {string} */
+                resolution?: "512px" | "1K" | "2K" | "4K";
+            };
+            prompt: string;
+            webhookEvents?: ("progress" | "completed" | "failed")[];
+            /** Format: uri */
+            webhookUrl?: string;
+        } | {
             fluxParams?: {
                 aspect_ratio?: string;
                 go_fast?: boolean;
@@ -2246,6 +2263,27 @@ export interface components {
             /** Format: uri */
             webhookUrl?: string;
         } | {
+            /** @enum {string} */
+            model: "seedream-5-pro";
+            prompt: string;
+            seedreamParams?: {
+                aspect_ratio?: string;
+                enhance_prompt?: boolean;
+                guidance_scale?: number;
+                height?: number;
+                image_input?: string[];
+                /** @enum {string} */
+                output_format?: "jpg" | "png";
+                resolution?: string;
+                seed?: number;
+                size?: string;
+                use_pre_llm?: boolean;
+                width?: number;
+            };
+            webhookEvents?: ("progress" | "completed" | "failed")[];
+            /** Format: uri */
+            webhookUrl?: string;
+        } | {
             ideogramParams?: {
                 aspect_ratio?: string;
                 /** Format: uri */
@@ -2428,6 +2466,84 @@ export interface components {
             /** Format: uri */
             webhookUrl?: string;
         } | {
+            ideogramParams?: {
+                aspect_ratio?: string;
+                /** Format: uri */
+                character_reference_image?: string;
+                /** Format: uri */
+                image?: string;
+                /** @enum {string} */
+                magic_prompt_option?: "Auto" | "On" | "Off";
+                /** Format: uri */
+                mask?: string;
+                negative_prompt?: string;
+                /** @enum {string} */
+                rendering_speed?: "default" | "turbo" | "quality";
+                resolution?: string;
+                seed?: number;
+                style_preset?: string;
+                style_reference_images?: string[];
+                style_type?: string;
+            };
+            /** @enum {string} */
+            model: "ideogram-v4-balanced";
+            prompt: string;
+            webhookEvents?: ("progress" | "completed" | "failed")[];
+            /** Format: uri */
+            webhookUrl?: string;
+        } | {
+            ideogramParams?: {
+                aspect_ratio?: string;
+                /** Format: uri */
+                character_reference_image?: string;
+                /** Format: uri */
+                image?: string;
+                /** @enum {string} */
+                magic_prompt_option?: "Auto" | "On" | "Off";
+                /** Format: uri */
+                mask?: string;
+                negative_prompt?: string;
+                /** @enum {string} */
+                rendering_speed?: "default" | "turbo" | "quality";
+                resolution?: string;
+                seed?: number;
+                style_preset?: string;
+                style_reference_images?: string[];
+                style_type?: string;
+            };
+            /** @enum {string} */
+            model: "ideogram-v4-turbo";
+            prompt: string;
+            webhookEvents?: ("progress" | "completed" | "failed")[];
+            /** Format: uri */
+            webhookUrl?: string;
+        } | {
+            ideogramParams?: {
+                aspect_ratio?: string;
+                /** Format: uri */
+                character_reference_image?: string;
+                /** Format: uri */
+                image?: string;
+                /** @enum {string} */
+                magic_prompt_option?: "Auto" | "On" | "Off";
+                /** Format: uri */
+                mask?: string;
+                negative_prompt?: string;
+                /** @enum {string} */
+                rendering_speed?: "default" | "turbo" | "quality";
+                resolution?: string;
+                seed?: number;
+                style_preset?: string;
+                style_reference_images?: string[];
+                style_type?: string;
+            };
+            /** @enum {string} */
+            model: "ideogram-v4-quality";
+            prompt: string;
+            webhookEvents?: ("progress" | "completed" | "failed")[];
+            /** Format: uri */
+            webhookUrl?: string;
+        } | {
             ideogramParams: {
                 aspect_ratio?: string;
                 /** Format: uri */
@@ -2450,6 +2566,90 @@ export interface components {
             /** @enum {string} */
             model: "ideogram-character";
             prompt: string;
+            webhookEvents?: ("progress" | "completed" | "failed")[];
+            /** Format: uri */
+            webhookUrl?: string;
+        } | {
+            /** @enum {string} */
+            model: "stable-diffusion-3.5-large";
+            prompt: string;
+            stableDiffusionParams?: {
+                /** @enum {string} */
+                aspect_ratio?: "1:1" | "16:9" | "21:9" | "3:2" | "2:3" | "4:5" | "5:4" | "9:16" | "9:21";
+                cfg?: number;
+                /** Format: uri */
+                image?: string;
+                negative_prompt?: string;
+                /** @enum {string} */
+                output_format?: "webp" | "jpg" | "png";
+                output_quality?: number;
+                prompt_strength?: number;
+                seed?: number;
+                steps?: number;
+            };
+            webhookEvents?: ("progress" | "completed" | "failed")[];
+            /** Format: uri */
+            webhookUrl?: string;
+        } | {
+            /** @enum {string} */
+            model: "stable-diffusion-3.5-large-turbo";
+            prompt: string;
+            stableDiffusionParams?: {
+                /** @enum {string} */
+                aspect_ratio?: "1:1" | "16:9" | "21:9" | "3:2" | "2:3" | "4:5" | "5:4" | "9:16" | "9:21";
+                cfg?: number;
+                /** Format: uri */
+                image?: string;
+                negative_prompt?: string;
+                /** @enum {string} */
+                output_format?: "webp" | "jpg" | "png";
+                output_quality?: number;
+                prompt_strength?: number;
+                seed?: number;
+                steps?: number;
+            };
+            webhookEvents?: ("progress" | "completed" | "failed")[];
+            /** Format: uri */
+            webhookUrl?: string;
+        } | {
+            /** @enum {string} */
+            model: "stable-diffusion-3.5-medium";
+            prompt: string;
+            stableDiffusionParams?: {
+                /** @enum {string} */
+                aspect_ratio?: "1:1" | "16:9" | "21:9" | "3:2" | "2:3" | "4:5" | "5:4" | "9:16" | "9:21";
+                cfg?: number;
+                /** Format: uri */
+                image?: string;
+                negative_prompt?: string;
+                /** @enum {string} */
+                output_format?: "webp" | "jpg" | "png";
+                output_quality?: number;
+                prompt_strength?: number;
+                seed?: number;
+                steps?: number;
+            };
+            webhookEvents?: ("progress" | "completed" | "failed")[];
+            /** Format: uri */
+            webhookUrl?: string;
+        } | {
+            /** @enum {string} */
+            model: "stable-diffusion-3";
+            prompt: string;
+            stableDiffusionParams?: {
+                /** @enum {string} */
+                aspect_ratio?: "1:1" | "16:9" | "21:9" | "3:2" | "2:3" | "4:5" | "5:4" | "9:16" | "9:21";
+                cfg?: number;
+                /** Format: uri */
+                image?: string;
+                negative_prompt?: string;
+                /** @enum {string} */
+                output_format?: "webp" | "jpg" | "png";
+                output_quality?: number;
+                prompt_strength?: number;
+                seed?: number;
+                steps?: number;
+            };
             webhookEvents?: ("progress" | "completed" | "failed")[];
             /** Format: uri */
             webhookUrl?: string;
@@ -2975,6 +3175,54 @@ export interface components {
             /** Format: uri */
             webhookUrl?: string;
         } | {
+            klingParams?: {
+                /** @enum {string} */
+                aspect_ratio?: "16:9" | "9:16" | "1:1";
+                duration?: number;
+                /** Format: uri */
+                end_image?: string;
+                generate_audio?: boolean;
+                keep_original_sound?: boolean;
+                /** @enum {string} */
+                mode?: "standard" | "pro" | "4k";
+                multi_prompt?: {
+                    duration: number;
+                    prompt: string;
+                }[];
+                negative_prompt?: string;
+                reference_images?: string[];
+                /** Format: uri */
+                reference_video?: string;
+                /** Format: uri */
+                start_image?: string;
+                /** @enum {string} */
+                video_reference_type?: "feature" | "base";
+            };
+            /** @enum {string} */
+            model: "kling-3.0-omni";
+            prompt: string;
+            webhookEvents?: ("progress" | "completed" | "failed")[];
+            /** Format: uri */
+            webhookUrl?: string;
+        } | {
+            klingParams: {
+                /** @enum {string} */
+                character_orientation?: "image" | "video";
+                /** Format: uri */
+                image: string;
+                keep_original_sound?: boolean;
+                /** @enum {string} */
+                mode?: "std" | "pro";
+                /** Format: uri */
+                video: string;
+            };
+            /** @enum {string} */
+            model: "kling-3.0-motion-control";
+            prompt: string;
+            webhookEvents?: ("progress" | "completed" | "failed")[];
+            /** Format: uri */
+            webhookUrl?: string;
+        } | {
             /** @enum {string} */
             model: "sora-2";
             prompt: string;
@@ -3099,7 +3347,7 @@ export interface components {
                 reference_image_urls?: string[];
                 reference_video_urls?: string[];
                 /** @enum {string} */
-                resolution?: "480p" | "720p" | "1080p";
+                resolution?: "480p" | "720p" | "1080p" | "4k";
                 return_last_frame?: boolean;
                 seed?: number;
                 /** Format: uri */
@@ -3125,6 +3373,56 @@ export interface components {
                 reference_video_urls?: string[];
                 /** @enum {string} */
                 resolution?: "480p" | "720p";
+                return_last_frame?: boolean;
+                seed?: number;
+                /** Format: uri */
+                start_image?: string;
+                web_search?: boolean;
+            };
+            webhookEvents?: ("progress" | "completed" | "failed")[];
+            /** Format: uri */
+            webhookUrl?: string;
+        } | {
+            /** @enum {string} */
+            model: "seedance-2-mini";
+            prompt: string;
+            seedanceParams?: {
+                aspect_ratio?: "21:9" | "16:9" | "4:3" | "1:1" | "3:4" | "9:16" | "adaptive";
+                camera_fixed?: boolean;
+                duration?: number;
+                /** Format: uri */
+                end_image?: string;
+                generate_audio?: boolean;
+                reference_audio_urls?: string[];
+                reference_image_urls?: string[];
+                reference_video_urls?: string[];
+                /** @enum {string} */
+                resolution?: "480p" | "720p";
+                return_last_frame?: boolean;
+                seed?: number;
+                /** Format: uri */
+                start_image?: string;
+                web_search?: boolean;
+            };
+            webhookEvents?: ("progress" | "completed" | "failed")[];
+            /** Format: uri */
+            webhookUrl?: string;
+        } | {
+            /** @enum {string} */
+            model: "seedance-2.5";
+            prompt: string;
+            seedanceParams?: {
+                aspect_ratio?: "21:9" | "16:9" | "4:3" | "1:1" | "3:4" | "9:16" | "adaptive";
+                camera_fixed?: boolean;
+                duration?: number;
+                /** Format: uri */
+                end_image?: string;
+                generate_audio?: boolean;
+                reference_audio_urls?: string[];
+                reference_image_urls?: string[];
+                reference_video_urls?: string[];
+                /** @enum {string} */
+                resolution?: "480p" | "720p" | "1080p" | "4k";
                 return_last_frame?: boolean;
                 seed?: number;
                 /** Format: uri */
@@ -3247,6 +3545,25 @@ export interface components {
                 last_frame?: string;
                 negative_prompt?: string;
                 reference_images?: string[];
+                /** @enum {string} */
+                resolution?: "720p" | "1080p";
+                seed?: number;
+            };
+            webhookEvents?: ("progress" | "completed" | "failed")[];
+            /** Format: uri */
+            webhookUrl?: string;
+        } | {
+            /** @enum {string} */
+            model: "veo-3.1-lite";
+            prompt: string;
+            veoParams?: {
+                aspect_ratio?: string;
+                duration?: 4 | 6 | 8;
+                /** Format: uri */
+                image?: string;
+                /** Format: uri */
+                last_frame?: string;
+                negative_prompt?: string;
                 /** @enum {string} */
                 resolution?: "720p" | "1080p";
                 seed?: number;
@@ -3471,6 +3788,39 @@ export interface components {
                 /** @enum {string} */
                 shot_type?: "single" | "multi";
             };
+            webhookEvents?: ("progress" | "completed" | "failed")[];
+            /** Format: uri */
+            webhookUrl?: string;
+        } | {
+            happyhorse10Params?: {
+                /** @enum {string} */
+                aspect_ratio?: "16:9" | "9:16" | "1:1" | "4:3" | "3:4";
+                duration?: number;
+                /** Format: uri */
+                image?: string;
+                /** @enum {string} */
+                resolution?: "720p" | "1080p";
+                seed?: number;
+            };
+            /** @enum {string} */
+            model: "happyhorse-1.0";
+            prompt: string;
+            webhookEvents?: ("progress" | "completed" | "failed")[];
+            /** Format: uri */
+            webhookUrl?: string;
+        } | {
+            happyhorse11Params?: {
+                /** @enum {string} */
+                aspect_ratio?: "16:9" | "9:16" | "1:1" | "4:3" | "3:4";
+                duration?: number;
+                images?: string[];
+                /** @enum {string} */
+                resolution?: "720p" | "1080p";
+                seed?: number;
+            };
+            /** @enum {string} */
+            model: "happyhorse-1.1";
+            prompt: string;
             webhookEvents?: ("progress" | "completed" | "failed")[];
             /** Format: uri */
             webhookUrl?: string;
