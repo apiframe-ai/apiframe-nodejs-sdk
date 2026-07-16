@@ -7895,6 +7895,79 @@
           {
             "additionalProperties": false,
             "properties": {
+              "hailuoParams": {
+                "additionalProperties": false,
+                "properties": {
+                  "duration": {
+                    "anyOf": [
+                      {
+                        "enum": [
+                          6
+                        ],
+                        "type": "number"
+                      },
+                      {
+                        "enum": [
+                          10
+                        ],
+                        "type": "number"
+                      }
+                    ]
+                  },
+                  "image": {
+                    "format": "uri",
+                    "type": "string"
+                  },
+                  "prompt_optimizer": {
+                    "type": "boolean"
+                  },
+                  "resolution": {
+                    "enum": [
+                      "768p",
+                      "1080p"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "model": {
+                "enum": [
+                  "hailuo-03"
+                ],
+                "type": "string"
+              },
+              "prompt": {
+                "maxLength": 2000,
+                "minLength": 1,
+                "type": "string"
+              },
+              "webhookEvents": {
+                "items": {
+                  "enum": [
+                    "progress",
+                    "completed",
+                    "failed"
+                  ],
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "webhookUrl": {
+                "format": "uri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "prompt",
+              "model"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
               "lumaParams": {
                 "additionalProperties": false,
                 "properties": {

@@ -3632,6 +3632,21 @@ export interface components {
             /** Format: uri */
             webhookUrl?: string;
         } | {
+            hailuoParams?: {
+                duration?: 6 | 10;
+                /** Format: uri */
+                image?: string;
+                prompt_optimizer?: boolean;
+                /** @enum {string} */
+                resolution?: "768p" | "1080p";
+            };
+            /** @enum {string} */
+            model: "hailuo-03";
+            prompt: string;
+            webhookEvents?: ("progress" | "completed" | "failed")[];
+            /** Format: uri */
+            webhookUrl?: string;
+        } | {
             lumaParams?: {
                 /** @enum {string} */
                 aspect_ratio?: "16:9" | "9:16" | "1:1" | "4:3" | "3:4" | "21:9";
